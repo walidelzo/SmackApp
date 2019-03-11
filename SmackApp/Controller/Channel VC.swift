@@ -9,7 +9,8 @@
 import UIKit
 
 class Channel_VC: UIViewController {
-    
+    @IBAction func prepareUnWindSegue(segue:UIStoryboardSegue){}
+
     @IBOutlet weak var loginBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
