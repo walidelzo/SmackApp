@@ -1,3 +1,5 @@
 import Foundation
-let TO_REAR = "sw_Rear"
 
+///Segues
+
+let TO_LOGIN = "toLogin"

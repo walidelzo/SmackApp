@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F869273FDAD2834E50A8C42 /* Pods_SmackApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5DFA1DE730627139D26B2 /* Pods_SmackApp.framework */; };
+		840A31FD223652B9008BBE9E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A31FC223652B9008BBE9E /* LoginVC.swift */; };
 		840E38AD2235A88B00896FA6 /* Gradientview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E38AC2235A88B00896FA6 /* Gradientview.swift */; };
 		8432899E223531E100A03AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432899D223531E100A03AAA /* AppDelegate.swift */; };
 		843289A3223531E100A03AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843289A1223531E100A03AAA /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		76A480FE75C14F2159B25451 /* Pods-SmackApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmackApp/Pods-SmackApp.debug.xcconfig"; sourceTree = "<group>"; };
+		840A31FC223652B9008BBE9E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		840E38AC2235A88B00896FA6 /* Gradientview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradientview.swift; sourceTree = "<group>"; };
 		8432899A223531E100A03AAA /* SmackApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8432899D223531E100A03AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				84426FFB22354D5B008672B9 /* Channel VC.swift */,
 				84426FFD22354D6B008672B9 /* ChatVC.swift */,
+				840A31FC223652B9008BBE9E /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				8432899E223531E100A03AAA /* AppDelegate.swift in Sources */,
 				84426FFC22354D5B008672B9 /* Channel VC.swift in Sources */,
+				840A31FD223652B9008BBE9E /* LoginVC.swift in Sources */,
 				843289B3223536FA00A03AAA /* SWRevealViewController.m in Sources */,
 				84426FF722354BAC008672B9 /* AppConstant.swift in Sources */,
 				840E38AD2235A88B00896FA6 /* Gradientview.swift in Sources */,
