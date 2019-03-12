@@ -234,7 +234,7 @@
                                     <action selector="CloseBtnPressed:" destination="fOw-sC-3Tw" eventType="touchUpInside" id="Dco-Cb-IQm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQz-Yw-Izg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQz-Yw-Izg" customClass="RoundedButton" customModule="SmackApp" customModuleProvider="target">
                                 <rect key="frame" x="62.5" y="290" width="250" height="41"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -244,6 +244,17 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="roundeOfButon">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radiusValue">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="CloseBtnPressed:" destination="fOw-sC-3Tw" eventType="touchUpInside" id="15P-oS-ORZ"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hwi-IJ-uLl">
                                 <rect key="frame" x="124.5" y="80" width="126" height="40"/>
@@ -375,17 +386,25 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rt6-hT-Ga2">
-                                <rect key="frame" x="62.5" y="586" width="250" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rt6-hT-Ga2" customClass="RoundedButton" customModule="SmackApp" customModuleProvider="target">
+                                <rect key="frame" x="62.5" y="607" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Wm6-KX-H27"/>
                                     <constraint firstAttribute="width" constant="250" id="aZd-8c-nNl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="SignUp">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radiusValue">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signUpPressed:" destination="IWd-r5-CdD" eventType="touchUpInside" id="B6F-fB-2yU"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="f1b-CP-5mR">
                                 <rect key="frame" x="147.5" y="352" width="80" height="80"/>
@@ -399,6 +418,7 @@
                                 <state key="normal" title="Choose an Avatar"/>
                                 <connections>
                                     <action selector="createAccountPressed:" destination="fOw-sC-3Tw" eventType="touchUpInside" id="iVi-2I-i68"/>
+                                    <action selector="pickAvatarPressed:" destination="IWd-r5-CdD" eventType="touchUpInside" id="qtn-g9-dE1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UW6-aV-n5N">
@@ -406,6 +426,7 @@
                                 <state key="normal" title="Generate Random Color"/>
                                 <connections>
                                     <action selector="createAccountPressed:" destination="fOw-sC-3Tw" eventType="touchUpInside" id="b3I-RF-YU7"/>
+                                    <action selector="geratecolorPressed:" destination="IWd-r5-CdD" eventType="touchUpInside" id="lzR-QG-lt2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -420,15 +441,19 @@
                             <constraint firstItem="HBq-hB-zvd" firstAttribute="top" secondItem="iXM-1d-t6B" secondAttribute="top" constant="50" id="KCK-xZ-aRR"/>
                             <constraint firstItem="rt6-hT-Ga2" firstAttribute="centerX" secondItem="9cn-MH-oEk" secondAttribute="centerX" id="KDR-ni-e2s"/>
                             <constraint firstItem="1A0-zl-aIS" firstAttribute="centerX" secondItem="9cn-MH-oEk" secondAttribute="centerX" id="YMO-BF-Fiq"/>
+                            <constraint firstItem="iXM-1d-t6B" firstAttribute="bottom" secondItem="rt6-hT-Ga2" secondAttribute="bottom" constant="10" id="bgp-0n-CSf"/>
                             <constraint firstItem="Fmu-ON-sEt" firstAttribute="centerX" secondItem="9cn-MH-oEk" secondAttribute="centerX" id="fxy-Mb-Y2d"/>
                             <constraint firstItem="UW6-aV-n5N" firstAttribute="top" secondItem="1A0-zl-aIS" secondAttribute="bottom" constant="2" id="mOy-tG-abV"/>
                             <constraint firstItem="f1b-CP-5mR" firstAttribute="top" secondItem="Fmu-ON-sEt" secondAttribute="bottom" constant="40" id="qMY-DV-QXD"/>
-                            <constraint firstItem="rt6-hT-Ga2" firstAttribute="top" secondItem="UW6-aV-n5N" secondAttribute="bottom" constant="82" id="rvJ-69-6PT"/>
                             <constraint firstItem="iXM-1d-t6B" firstAttribute="trailing" secondItem="XSc-wG-PnO" secondAttribute="trailing" constant="10" id="tcF-pN-HWe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iXM-1d-t6B"/>
                     </view>
                     <connections>
+                        <outlet property="avatarImageView" destination="f1b-CP-5mR" id="nk5-V3-e79"/>
+                        <outlet property="emailTxt" destination="8OC-BV-cl8" id="reS-Fd-v3h"/>
+                        <outlet property="passWordTxt" destination="DyZ-DN-7W8" id="Ft0-Sq-sTO"/>
+                        <outlet property="userNameTxt" destination="FE1-QP-R0y" id="rN1-HX-gZk"/>
                         <segue destination="vBU-Ac-ShT" kind="unwind" identifier="unWindToChannelSegue" unwindAction="prepareUnWindSegueWithSegue:" id="9S8-Y8-0pT"/>
                     </connections>
                 </viewController>
