@@ -453,6 +453,7 @@
                         <outlet property="avatarImageView" destination="f1b-CP-5mR" id="nk5-V3-e79"/>
                         <outlet property="emailTxt" destination="8OC-BV-cl8" id="reS-Fd-v3h"/>
                         <outlet property="passWordTxt" destination="DyZ-DN-7W8" id="Ft0-Sq-sTO"/>
+                        <outlet property="signUpBtn" destination="rt6-hT-Ga2" id="NSD-gw-ygJ"/>
                         <outlet property="userNameTxt" destination="FE1-QP-R0y" id="rN1-HX-gZk"/>
                         <segue destination="vBU-Ac-ShT" kind="unwind" identifier="unWindToChannelSegue" unwindAction="prepareUnWindSegueWithSegue:" id="9S8-Y8-0pT"/>
                     </connections>
