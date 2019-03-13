@@ -31,7 +31,13 @@ class CreateAccountVC: UIViewController {
        // signUpBtn.isEnabled = true
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDataService.instance.avatarName != "" {
+            self.avatarName = UserDataService.instance.avatarName
+            avatarImageView.image = UIImage(named: self.avatarName)
+        }
+        
+    }
     
     // @ibAction
     

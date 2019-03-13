@@ -467,10 +467,10 @@
             </objects>
             <point key="canvasLocation" x="1896.8" y="-215.44227886056973"/>
         </scene>
-        <!--Avatar PicerVC-->
+        <!--Avatar PickerVC-->
         <scene sceneID="paW-xX-Zec">
             <objects>
-                <viewController id="H0K-We-n4O" customClass="AvatarPicerVC" customModule="SmackApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="H0K-We-n4O" customClass="AvatarPickerVC" customModule="SmackApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ePW-eb-mJL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -528,6 +528,9 @@
                                             <constraint firstItem="Om3-QO-Lh1" firstAttribute="top" secondItem="ReV-IN-7w4" secondAttribute="top" constant="5" id="MW8-sg-v8k"/>
                                             <constraint firstItem="Om3-QO-Lh1" firstAttribute="leading" secondItem="ReV-IN-7w4" secondAttribute="leading" constant="5" id="zxb-8T-ltH"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="avatarImage" destination="Om3-QO-Lh1" id="tqQ-Rq-KXh"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

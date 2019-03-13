@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AvatarPicerVC: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource {
+class AvatarPickerVC: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource {
     //MARK:- IBOUTLETS
     //OutLets
     @IBOutlet weak var AvatarCollV: UICollectionView!
