@@ -7,6 +7,7 @@ typealias completionHandler = (_ Success :Bool ) ->()
 let TO_LOGIN = "toLogin"
 let TO_CREATEACOUNT = "toCreateAccount"
 let TO_WIND_TO_CHANNEL_SEGUE = "unWindToChannelSegue"
+let To_AVATAR_PICKER = "toAvatarPicker"
 
 // User Defualts
 let  TOKEN_KEY = "token"
