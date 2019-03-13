@@ -17,4 +17,10 @@ let USER_EMAIL_KEY = "userEmail"
 
 let BASE_URL = "https://walidsmackapp.herokuapp.com/v1/"
 let REGISTER_URL = "\(BASE_URL)account/register"
+let LOGIN_URL = "\(BASE_URL)account/login"
+
+///JSON Header
+
+let HEADER = ["Content-Type" : "application/json; charset=utf-8"]
+
 
