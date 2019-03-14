@@ -10,14 +10,32 @@ import UIKit
 
 class Channel_VC: UIViewController {
     @IBAction func prepareUnWindSegue(segue:UIStoryboardSegue){}
-
+    
     @IBOutlet weak var loginBtn: UIButton!
+    
+    @IBOutlet weak var menuProfileImage: RoundedImage!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.width - 60
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(Channel_VC.userDataDidChanged(_:)), name: NOTIFY_USER_DATA_CHANGED, object: nil)
+        
     }
     
+    @objc func userDataDidChanged (_ notifi:Notification){
+        
+        if AuthService.instance.islogIn {
+            menuProfileImage.image = UIImage(named:UserDataService.instance.avatarName)
+            loginBtn.setTitle(UserDataService.instance.name, for: .normal)
+            menuProfileImage.backgroundColor = UserDataService.instance.returnColor(avatarColorString: UserDataService.instance.avatarColor)
+            
+        }else{
+            menuProfileImage.image = UIImage (named: "menuProfileIcon")
+            loginBtn.setTitle("Login", for: .normal)
+        }
+        
+    }
     
     @IBAction func loginBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_LOGIN, sender: nil)
