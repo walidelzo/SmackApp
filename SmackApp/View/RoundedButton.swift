@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 class RoundedButton: UIButton {
     
-    @IBInspectable var radiusValue : CGFloat = 3.0
+    @IBInspectable var radiusValue : CGFloat = 5.0
         {
         
         didSet{  self.setNeedsLayout()    }

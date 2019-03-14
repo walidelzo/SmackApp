@@ -105,7 +105,7 @@
                                 <rect key="frame" x="281" y="76.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cow-mi-nXn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cow-mi-nXn" customClass="RoundedImage" customModule="SmackApp" customModuleProvider="target">
                                 <rect key="frame" x="5" y="587" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="JbG-H4-2fV"/>
@@ -191,7 +191,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="dT7-f7-BYs">
                                 <rect key="frame" x="62.5" y="170" width="250" height="90"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uye-0S-I19">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uye-0S-I19" customClass="TextFieldPlaceHolder" customModule="SmackApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="a80-lT-JQy"/>
@@ -208,7 +208,7 @@
                                             <constraint firstAttribute="width" constant="250" id="Bxx-Xe-tp9"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bN4-FK-CAB">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bN4-FK-CAB" customClass="TextFieldPlaceHolder" customModule="SmackApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="52" width="250" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="8EZ-ib-sqt"/>
@@ -247,9 +247,6 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="roundeOfButon">
                                         <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="radiusValue">
-                                        <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -313,6 +310,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-p9-Gcx">
+                                <rect key="frame" x="137.5" y="203.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="c0a-OG-bZE"/>
+                                    <constraint firstAttribute="height" constant="100" id="oMW-SK-WN2"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSc-wG-PnO">
                                 <rect key="frame" x="337" y="30" width="28" height="28"/>
                                 <state key="normal" image="closeButton"/>
@@ -342,11 +346,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Fmu-ON-sEt">
                                 <rect key="frame" x="62.5" y="170" width="250" height="142"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FE1-QP-R0y">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FE1-QP-R0y" customClass="TextFieldPlaceHolder" customModule="SmackApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="22"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3tY-fz-Bgp">
                                         <rect key="frame" x="0.0" y="36" width="250" height="2"/>
@@ -356,11 +360,11 @@
                                             <constraint firstAttribute="width" constant="250" id="qmX-yc-gmE"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8OC-BV-cl8">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8OC-BV-cl8" customClass="TextFieldPlaceHolder" customModule="SmackApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="52" width="118.5" height="22"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="An3-dD-9pz">
                                         <rect key="frame" x="0.0" y="88" width="250" height="2"/>
@@ -370,11 +374,11 @@
                                             <constraint firstAttribute="height" constant="2" id="gaP-7U-JzG"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DyZ-DN-7W8">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DyZ-DN-7W8" customClass="TextFieldPlaceHolder" customModule="SmackApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="104" width="82" height="22"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="It7-QT-Cwv">
                                         <rect key="frame" x="0.0" y="140" width="250" height="2"/>
@@ -406,7 +410,7 @@
                                     <action selector="signUpPressed:" destination="IWd-r5-CdD" eventType="touchUpInside" id="B6F-fB-2yU"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="f1b-CP-5mR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="f1b-CP-5mR" customClass="RoundedImage" customModule="SmackApp" customModuleProvider="target">
                                 <rect key="frame" x="147.5" y="352" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="2rW-of-GhE"/>
@@ -438,7 +442,9 @@
                             <constraint firstItem="Fmu-ON-sEt" firstAttribute="top" secondItem="HBq-hB-zvd" secondAttribute="bottom" constant="60" id="4eZ-Ll-Qxc"/>
                             <constraint firstItem="1A0-zl-aIS" firstAttribute="top" secondItem="f1b-CP-5mR" secondAttribute="bottom" constant="-50" id="6EA-ma-kYE"/>
                             <constraint firstItem="HBq-hB-zvd" firstAttribute="centerX" secondItem="9cn-MH-oEk" secondAttribute="centerX" id="8AC-gZ-BN7"/>
+                            <constraint firstItem="zt4-p9-Gcx" firstAttribute="centerY" secondItem="9cn-MH-oEk" secondAttribute="centerY" constant="-80" id="Bqx-rM-3hm"/>
                             <constraint firstItem="UW6-aV-n5N" firstAttribute="centerX" secondItem="9cn-MH-oEk" secondAttribute="centerX" id="EWV-QZ-ztN"/>
+                            <constraint firstItem="zt4-p9-Gcx" firstAttribute="centerX" secondItem="9cn-MH-oEk" secondAttribute="centerX" id="FRX-fo-u8K"/>
                             <constraint firstItem="f1b-CP-5mR" firstAttribute="centerX" secondItem="9cn-MH-oEk" secondAttribute="centerX" id="HBm-tN-MC1"/>
                             <constraint firstItem="XSc-wG-PnO" firstAttribute="top" secondItem="iXM-1d-t6B" secondAttribute="top" constant="10" id="HrC-6H-5bS"/>
                             <constraint firstItem="HBq-hB-zvd" firstAttribute="top" secondItem="iXM-1d-t6B" secondAttribute="top" constant="50" id="KCK-xZ-aRR"/>
@@ -455,6 +461,7 @@
                     <connections>
                         <outlet property="avatarImageView" destination="f1b-CP-5mR" id="nk5-V3-e79"/>
                         <outlet property="emailTxt" destination="8OC-BV-cl8" id="reS-Fd-v3h"/>
+                        <outlet property="indicator" destination="zt4-p9-Gcx" id="4L2-XW-A5T"/>
                         <outlet property="passWordTxt" destination="DyZ-DN-7W8" id="Ft0-Sq-sTO"/>
                         <outlet property="signUpBtn" destination="rt6-hT-Ga2" id="NSD-gw-ygJ"/>
                         <outlet property="userNameTxt" destination="FE1-QP-R0y" id="rN1-HX-gZk"/>

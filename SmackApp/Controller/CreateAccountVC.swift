@@ -19,6 +19,8 @@ class CreateAccountVC: UIViewController {
     
     @IBOutlet weak var signUpBtn: RoundedButton!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     /// var
     var avatarName:String = "profileDefault"
     var avatarColor:String = "[0.5,0.5,0.5,1]"
@@ -27,14 +29,23 @@ class CreateAccountVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-       // signUpBtn.isEnabled = true
+
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.handleTap))
+        view.addGestureRecognizer(tapGes)
+    }
+    
+   @objc func handleTap(){
+        view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if UserDataService.instance.avatarName != "" {
             self.avatarName = UserDataService.instance.avatarName
             avatarImageView.image = UIImage(named: self.avatarName)
+            self.avatarColor = UserDataService.instance.avatarName
+            if avatarColor.contains("light"){
+                avatarImageView.backgroundColor = UIColor.darkGray
+            }
         }
         
     }
@@ -42,7 +53,8 @@ class CreateAccountVC: UIViewController {
     // @ibAction
     
     @IBAction func signUpPressed(_ sender: Any) {
-        signUpBtn.isEnabled = false
+        indicator.startAnimating()
+        indicator.isHidden = false
         guard let name = userNameTxt.text , userNameTxt.text != ""   else { return }
         guard let email = emailTxt.text , emailTxt.text != ""   else { return }
         guard let pass = passWordTxt.text , passWordTxt.text != "" else { return  }
@@ -53,8 +65,7 @@ class CreateAccountVC: UIViewController {
                     if (Success){
                         AuthService.instance.addUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             self.performSegue(withIdentifier: TO_WIND_TO_CHANNEL_SEGUE, sender: nil)
-                            print(AuthService.instance.userEmail + " " + UserDataService.instance.avatarName)
-                            
+                            NotificationCenter.default.post(name: NOTIFY_USER_DATA_CHANGED, object: nil)
                         })
                         
                     }
@@ -67,6 +78,15 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func geratecolorPressed(_ sender: Any) {
+        
+        let r = CGFloat (arc4random_uniform(255)) / 255
+        let b = CGFloat (arc4random_uniform(255)) / 255
+        let g = CGFloat (arc4random_uniform(255)) / 255
+        
+        let randomColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        UIView.animate(withDuration: 0.2){
+       self.avatarImageView.backgroundColor = randomColor
+        }
     }
     
     @IBAction func pickAvatarPressed(_ sender: Any) {

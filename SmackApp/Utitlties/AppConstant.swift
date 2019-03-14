@@ -14,7 +14,10 @@ let  TOKEN_KEY = "token"
 let LOGED_IN_KEY = "logedIn"
 let USER_EMAIL_KEY = "userEmail"
 
-// URl
+//Notification centre constant
+
+let NOTIFY_USER_DATA_CHANGED = Notification.Name("notifUserDataChanged")
+
 
 //let BASE_URL = "https://walidsmackapp.herokuapp.com/v1/"
 let BASE_URL = "http://localhost:3005/v1/"
