@@ -16,6 +16,8 @@
 		840EFC452239633500BC400A /* avatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EFC442239633500BC400A /* avatarCell.swift */; };
 		840EFC47223A181600BC400A /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EFC46223A181600BC400A /* RoundedImage.swift */; };
 		840EFC49223A1B0300BC400A /* TextFieldPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EFC48223A1B0300BC400A /* TextFieldPlaceHolder.swift */; };
+		840EFC4C223A714F00BC400A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EFC4A223A714F00BC400A /* Profile.swift */; };
+		840EFC4D223A714F00BC400A /* Profile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840EFC4B223A714F00BC400A /* Profile.xib */; };
 		8419CCA92237898F0080D873 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419CCA82237898F0080D873 /* AuthService.swift */; };
 		8419CCAB2237DE2A0080D873 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419CCAA2237DE2A0080D873 /* RoundedButton.swift */; };
 		8432899E223531E100A03AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432899D223531E100A03AAA /* AppDelegate.swift */; };
@@ -38,6 +40,8 @@
 		840EFC442239633500BC400A /* avatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avatarCell.swift; sourceTree = "<group>"; };
 		840EFC46223A181600BC400A /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
 		840EFC48223A1B0300BC400A /* TextFieldPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceHolder.swift; sourceTree = "<group>"; };
+		840EFC4A223A714F00BC400A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		840EFC4B223A714F00BC400A /* Profile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Profile.xib; sourceTree = "<group>"; };
 		8419CCA82237898F0080D873 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8419CCAA2237DE2A0080D873 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		8432899A223531E100A03AAA /* SmackApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		840EFC4E223A715A00BC400A /* XIPS */ = {
+			isa = PBXGroup;
+			children = (
+				840EFC4B223A714F00BC400A /* Profile.xib */,
+			);
+			path = XIPS;
+			sourceTree = "<group>";
+		};
 		8419CCA72237896B0080D873 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +119,7 @@
 		8432899C223531E100A03AAA /* SmackApp */ = {
 			isa = PBXGroup;
 			children = (
+				840EFC4E223A715A00BC400A /* XIPS */,
 				84426FF522354B78008672B9 /* Utitlties */,
 				8419CCA72237896B0080D873 /* Service */,
 				84426FFA22354CA6008672B9 /* Model */,
@@ -160,6 +173,7 @@
 				840EFC442239633500BC400A /* avatarCell.swift */,
 				840EFC46223A181600BC400A /* RoundedImage.swift */,
 				840EFC48223A1B0300BC400A /* TextFieldPlaceHolder.swift */,
+				840EFC4A223A714F00BC400A /* Profile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				843289A8223531E200A03AAA /* LaunchScreen.storyboard in Resources */,
+				840EFC4D223A714F00BC400A /* Profile.xib in Resources */,
 				843289A5223531E200A03AAA /* Assets.xcassets in Resources */,
 				843289A3223531E100A03AAA /* Main.storyboard in Resources */,
 			);
@@ -307,6 +322,7 @@
 				840A31FD223652B9008BBE9E /* LoginVC.swift in Sources */,
 				843289B3223536FA00A03AAA /* SWRevealViewController.m in Sources */,
 				84426FF722354BAC008672B9 /* AppConstant.swift in Sources */,
+				840EFC4C223A714F00BC400A /* Profile.swift in Sources */,
 				840EFC47223A181600BC400A /* RoundedImage.swift in Sources */,
 				8419CCA92237898F0080D873 /* AuthService.swift in Sources */,
 				840E38AD2235A88B00896FA6 /* Gradientview.swift in Sources */,

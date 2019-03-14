@@ -16,9 +16,7 @@ class Channel_VC: UIViewController {
     @IBOutlet weak var menuProfileImage: RoundedImage!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.width - 60
-        
         NotificationCenter.default.addObserver(self, selector: #selector(Channel_VC.userDataDidChanged(_:)), name: NOTIFY_USER_DATA_CHANGED, object: nil)
         
     }
@@ -37,8 +35,16 @@ class Channel_VC: UIViewController {
         
     }
     
+    
     @IBAction func loginBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        if AuthService.instance.islogIn {
+            let profileVC = Profile()
+            profileVC.modalPresentationStyle = .custom
+            present(profileVC, animated: true, completion: nil)
+        }else{
+            performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        }
+        
     }
     
 }
