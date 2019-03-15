@@ -38,8 +38,9 @@ class Profile: UIViewController {
     
     //MARK:- setView Method
     func setUpView(){
+        
         userName.text = UserDataService.instance.name
-        userEmailLBL.text = AuthService.instance.userEmail
+        userEmailLBL.text = UserDataService.instance.email
         profileImage.image = UIImage(named: UserDataService.instance.avatarName)
         profileImage.backgroundColor = UserDataService.instance.returnColor(avatarColorString: UserDataService.instance.avatarColor)
         

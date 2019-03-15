@@ -156,8 +156,8 @@
 		84426FF822354C82008672B9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				84426FFB22354D5B008672B9 /* Channel VC.swift */,
 				84426FFD22354D6B008672B9 /* ChatVC.swift */,
+				84426FFB22354D5B008672B9 /* Channel VC.swift */,
 				840A31FC223652B9008BBE9E /* LoginVC.swift */,
 				840A31FE22365DB6008BBE9E /* CreateAccountVC.swift */,
 				840EFC4222395B0600BC400A /* AvatarPickerVC.swift */,

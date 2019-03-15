@@ -11,6 +11,7 @@ import UIKit
 class ChatVC: UIViewController {
 
     @IBOutlet var menuBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // add revealaction to menu button
@@ -20,7 +21,12 @@ class ChatVC: UIViewController {
         self.view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
         self.view.addGestureRecognizer((self.revealViewController()?.tapGestureRecognizer())!)
         
-        
+        if AuthService.instance.islogIn
+        {
+            AuthService.instance.findUserByEmail { (success) in
+                NotificationCenter.default.post(name: NOTIFY_USER_DATA_CHANGED, object: nil)
+            }
+        }
         
 
 

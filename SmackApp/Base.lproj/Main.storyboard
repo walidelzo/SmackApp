@@ -192,7 +192,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="dT7-f7-BYs">
                                 <rect key="frame" x="62.5" y="170" width="250" height="90"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uye-0S-I19" customClass="TextFieldPlaceHolder" customModule="SmackApp" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uye-0S-I19" customClass="TextFieldPlaceHolder" customModule="SmackApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="a80-lT-JQy"/>
@@ -252,10 +252,11 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="CloseBtnPressed:" destination="fOw-sC-3Tw" eventType="touchUpInside" id="15P-oS-ORZ"/>
+                                    <action selector="logingBtnPressed:" destination="fOw-sC-3Tw" eventType="touchUpInside" id="RsP-yl-qLF"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hwi-IJ-uLl">
-                                <rect key="frame" x="124.5" y="80" width="126" height="40"/>
+                                <rect key="frame" x="131" y="80" width="113.5" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smackLogo" translatesAutoresizingMaskIntoConstraints="NO" id="WMU-EE-xmi">
                                         <rect key="frame" x="0.0" y="0.0" width="48" height="40"/>
@@ -264,8 +265,8 @@
                                             <constraint firstAttribute="width" constant="48" id="O4u-aD-Ymv"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfr-ov-SgN">
-                                        <rect key="frame" x="60" y="0.0" width="66" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfr-ov-SgN">
+                                        <rect key="frame" x="60" y="0.0" width="53.5" height="40"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="0.25882352941176467" green="0.32941176470588235" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -279,16 +280,22 @@
                                     <action selector="createAccountPressed:" destination="fOw-sC-3Tw" eventType="touchUpInside" id="SaS-Ph-4oJ"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="U9g-Ho-k6c">
+                                <rect key="frame" x="169" y="245" width="37" height="37"/>
+                                <color key="color" red="0.2901960784" green="0.30196078430000001" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dT7-f7-BYs" firstAttribute="centerX" secondItem="jHM-LW-rKg" secondAttribute="centerX" id="20Y-aY-Dwe"/>
                             <constraint firstItem="xQz-Yw-Izg" firstAttribute="centerX" secondItem="jHM-LW-rKg" secondAttribute="centerX" id="40z-gD-Oj8"/>
                             <constraint firstItem="hwi-IJ-uLl" firstAttribute="top" secondItem="B31-Px-Lcq" secondAttribute="top" constant="60" id="73A-e4-vkp"/>
+                            <constraint firstItem="U9g-Ho-k6c" firstAttribute="centerX" secondItem="jHM-LW-rKg" secondAttribute="centerX" id="8K1-uI-VpZ"/>
                             <constraint firstItem="pcW-JC-Ax5" firstAttribute="centerX" secondItem="jHM-LW-rKg" secondAttribute="centerX" id="AgM-ut-Flx"/>
                             <constraint firstItem="I20-9s-AUu" firstAttribute="top" secondItem="B31-Px-Lcq" secondAttribute="top" constant="10" id="I0e-q1-OjB"/>
                             <constraint firstItem="xQz-Yw-Izg" firstAttribute="top" secondItem="dT7-f7-BYs" secondAttribute="bottom" constant="30" id="XcM-ZP-TAo"/>
                             <constraint firstItem="B31-Px-Lcq" firstAttribute="trailing" secondItem="I20-9s-AUu" secondAttribute="trailing" constant="10" id="Z49-ew-Ynl"/>
+                            <constraint firstItem="U9g-Ho-k6c" firstAttribute="centerY" secondItem="jHM-LW-rKg" secondAttribute="centerY" constant="-70" id="frl-MA-1RD"/>
                             <constraint firstItem="hwi-IJ-uLl" firstAttribute="centerX" secondItem="jHM-LW-rKg" secondAttribute="centerX" id="goG-D4-Km6"/>
                             <constraint firstItem="dT7-f7-BYs" firstAttribute="top" secondItem="hwi-IJ-uLl" secondAttribute="bottom" constant="50" id="pSR-eX-quo"/>
                             <constraint firstItem="pcW-JC-Ax5" firstAttribute="top" secondItem="xQz-Yw-Izg" secondAttribute="bottom" constant="2" id="umF-c7-Ajo"/>
@@ -296,6 +303,9 @@
                         <viewLayoutGuide key="safeArea" id="B31-Px-Lcq"/>
                     </view>
                     <connections>
+                        <outlet property="emailTXT" destination="uye-0S-I19" id="fG5-mo-rhy"/>
+                        <outlet property="indicator" destination="U9g-Ho-k6c" id="Jkk-nl-i6m"/>
+                        <outlet property="passWordTXT" destination="bN4-FK-CAB" id="XNl-p9-VMK"/>
                         <segue destination="IWd-r5-CdD" kind="show" identifier="toCreateAccount" id="Gu0-Mt-fSE"/>
                     </connections>
                 </viewController>
@@ -311,12 +321,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-p9-Gcx">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-p9-Gcx">
                                 <rect key="frame" x="137.5" y="203.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="c0a-OG-bZE"/>
                                     <constraint firstAttribute="height" constant="100" id="oMW-SK-WN2"/>
                                 </constraints>
+                                <color key="color" red="0.2901960784" green="0.30196078430000001" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSc-wG-PnO">
                                 <rect key="frame" x="337" y="30" width="28" height="28"/>
@@ -327,7 +338,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="HBq-hB-zvd">
-                                <rect key="frame" x="124.5" y="70" width="126" height="40"/>
+                                <rect key="frame" x="73.5" y="70" width="228.5" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smackLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6xF-IS-Owl">
                                         <rect key="frame" x="0.0" y="0.0" width="48" height="40"/>
@@ -336,8 +347,8 @@
                                             <constraint firstAttribute="width" constant="48" id="mpA-Ot-0u3"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaw-ZP-yRS">
-                                        <rect key="frame" x="60" y="0.0" width="66" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ceate an account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaw-ZP-yRS">
+                                        <rect key="frame" x="60" y="0.0" width="168.5" height="40"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
