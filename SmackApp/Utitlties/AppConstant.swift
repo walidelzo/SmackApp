@@ -26,6 +26,8 @@ let REGISTER_URL = "\(BASE_URL)account/register"
 let LOGIN_URL = "\(BASE_URL)account/login"
 let ADD_USER_URL = "\(BASE_URL)user/add"
 let LOGIN_USER_BYID_URL = "\(BASE_URL)user/byEmail/"
+let URL_CHANNEL = "\(BASE_URL)channel/"
+
 
 ///JSON Header
 

@@ -23,8 +23,13 @@ class LoginVC: UIViewController {
         indicator.startAnimating()
         indicator.isHidden = true
         // Do any additional setup after loading the view.
+        let keyBoardTap = UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismissKeyBoard))
+        view.addGestureRecognizer(keyBoardTap)
     }
     
+   @objc func dismissKeyBoard(){
+        self.view.endEditing(true)
+    }
     
     @IBAction func CloseBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)

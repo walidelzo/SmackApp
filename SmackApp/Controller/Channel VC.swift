@@ -19,8 +19,7 @@ class Channel_VC: UIViewController {
         super.viewDidLoad()
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(Channel_VC.userDataDidChanged(_:)), name: NOTIFY_USER_DATA_CHANGED, object: nil)
-        
-    }
+        }
     
     override func viewDidAppear(_ animated: Bool) {
         setUserInfo()
@@ -37,6 +36,11 @@ class Channel_VC: UIViewController {
             menuProfileImage.image = UIImage(named:UserDataService.instance.avatarName)
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
             menuProfileImage.backgroundColor = UserDataService.instance.returnColor(avatarColorString: UserDataService.instance.avatarColor)
+       
+            
+          
+
+        
         }else{
             menuProfileImage.image = UIImage (named: "menuProfileIcon")
             loginBtn.setTitle("Login", for: .normal)

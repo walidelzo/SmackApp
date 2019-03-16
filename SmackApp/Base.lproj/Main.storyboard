@@ -199,7 +199,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hG7-f2-OUb">
                                         <rect key="frame" x="0.0" y="36" width="250" height="2"/>
@@ -216,7 +216,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbG-9D-lul">
                                         <rect key="frame" x="0.0" y="88" width="250" height="2"/>
@@ -274,8 +274,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcW-JC-Ax5">
-                                <rect key="frame" x="63" y="333" width="249" height="30"/>
-                                <state key="normal" title="Do'not have Account ? SingUp Here."/>
+                                <rect key="frame" x="61" y="333" width="253" height="30"/>
+                                <state key="normal" title="Do not have Account ?  SignUp Here."/>
                                 <connections>
                                     <action selector="createAccountPressed:" destination="fOw-sC-3Tw" eventType="touchUpInside" id="SaS-Ph-4oJ"/>
                                 </connections>
