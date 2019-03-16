@@ -17,6 +17,11 @@ let USER_EMAIL_KEY = "userEmail"
 //Notification centre constant
 
 let NOTIFY_USER_DATA_CHANGED = Notification.Name("notifUserDataChanged")
+let NOTIFY_CHANNEL_LOADED = Notification.Name("notifichannelLoaded")
+let NOTIFY_CHANNEL_SELECTED = Notification.Name("notifichannelSelected")
+
+
+
 
 
 //let BASE_URL = "https://walidsmackapp.herokuapp.com/v1/"

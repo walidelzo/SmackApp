@@ -16,7 +16,7 @@ class MassegeDataService {
     static let instance = MassegeDataService()
     //this is array of channel struct
     var channels = [Channel]()
-    
+    var selectedChannel :Channel?
     //this function to retrive all channel from api by Alamofire
     
     func findAllChannels(completion:@escaping completionHandler){
@@ -35,7 +35,7 @@ class MassegeDataService {
                         
                         let channel = Channel.init(id: id, name: name, description: description)
                         self.channels.append(channel)
-                        //print(channel.name!)
+                        NotificationCenter.default.post(name: NOTIFY_CHANNEL_LOADED, object: nil)
                     }
                 }
             }else{
@@ -46,5 +46,7 @@ class MassegeDataService {
         
     }
     
-    
+    func clearChannel(){
+        channels.removeAll()
+    }
 }
