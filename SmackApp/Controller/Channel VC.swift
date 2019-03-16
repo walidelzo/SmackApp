@@ -83,4 +83,11 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
     @IBAction func prepareUnWindSegue(segue:UIStoryboardSegue){}
     
     
+    @IBAction func addChannelBtnPressed(_ sender: Any) {
+        let addChannelVCC = AddChannel()
+        addChannelVCC.modalPresentationStyle = .custom
+        present(addChannelVCC, animated: true, completion: nil)
+
+    }
+    
 }

@@ -104,6 +104,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BN2-ep-p5D">
                                 <rect key="frame" x="281" y="76.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelBtnPressed:" destination="o8k-ZP-1lA" eventType="touchUpInside" id="Php-Ig-p9P"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cow-mi-nXn" customClass="RoundedImage" customModule="SmackApp" customModuleProvider="target">
                                 <rect key="frame" x="5" y="587" width="75" height="75"/>
