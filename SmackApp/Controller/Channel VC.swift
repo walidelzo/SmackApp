@@ -44,10 +44,20 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
         self.tableView.delegate = self
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(Channel_VC.userDataDidChanged(_:)), name: NOTIFY_USER_DATA_CHANGED, object: nil)
+        
+        ///get channel by SocketIO
+        SocketService.instance.getChannel { (Success) in
+            if (Success)
+            {
+                self.tableView.reloadData()
+            }
+        }
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setUserInfo()
+      
     }
     
     ///MARK:- helper Methods
@@ -61,9 +71,14 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
             menuProfileImage.image = UIImage(named:UserDataService.instance.avatarName)
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
             menuProfileImage.backgroundColor = UserDataService.instance.returnColor(avatarColorString: UserDataService.instance.avatarColor)
+            
+
+            
+            
         }else{
             menuProfileImage.image = UIImage (named: "menuProfileIcon")
             loginBtn.setTitle("Login", for: .normal)
+            menuProfileImage.backgroundColor = UIColor.clear
         }
         
     }

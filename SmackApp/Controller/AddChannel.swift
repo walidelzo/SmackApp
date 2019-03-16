@@ -9,7 +9,7 @@
 import UIKit
 
 class AddChannel: UIViewController {
-//Outlets
+    //Outlets
     
     @IBOutlet weak var bgview: UIView!
     
@@ -19,19 +19,19 @@ class AddChannel: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         let closeTapGes = UITapGestureRecognizer(target: self, action: #selector(AddChannel.tapFunc(_:)))
         bgview.addGestureRecognizer(closeTapGes)
     }
-
+    
     //gesture method
     
     @objc func tapFunc (_ recognizer:UITapGestureRecognizer){
-    dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-///IbActions
+    ///IbActions
     
     @IBAction func closeView(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -39,7 +39,12 @@ class AddChannel: UIViewController {
     
     @IBAction func createChannelpressd(_ sender: Any)
     {
-    
+        guard let nameOfChannel = namTXT.text , namTXT.text != ""  else { return  }
+        guard let descriptionOfchannel  = descriptionTXT.text , descriptionTXT.text != "" else { return }
+        SocketService.instance.addChannel(channelName: nameOfChannel, channeDescription: descriptionOfchannel) { (Success) in
+            self.dismiss(animated: true, completion: nil)
+           
+        }
     }
     
 }
