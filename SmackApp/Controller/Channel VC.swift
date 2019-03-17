@@ -12,7 +12,6 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var menuProfileImage: RoundedImage!
-    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -68,7 +67,6 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
     
     override func viewDidAppear(_ animated: Bool) {
         setUserInfo()
-      
     }
     
     ///MARK:- Notification Methods
