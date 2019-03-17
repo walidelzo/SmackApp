@@ -10,8 +10,7 @@ import UIKit
 
 class CreateAccountVC: UIViewController {
     
-    //OutLets
-    
+    //MARK:-   OutLets
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passWordTxt: UITextField!
@@ -21,7 +20,7 @@ class CreateAccountVC: UIViewController {
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    /// var
+    // MARK:- View Methods
     var avatarName:String = "profileDefault"
     var avatarColor:String = "[0.5,0.5,0.5,1]"
     
@@ -50,8 +49,8 @@ class CreateAccountVC: UIViewController {
         
     }
     
-    // @ibAction
-    
+    //MARK:- IBActions
+
     @IBAction func signUpPressed(_ sender: Any) {
         indicator.startAnimating()
         indicator.isHidden = false
@@ -66,6 +65,7 @@ class CreateAccountVC: UIViewController {
                         AuthService.instance.addUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             self.performSegue(withIdentifier: TO_WIND_TO_CHANNEL_SEGUE, sender: nil)
                             NotificationCenter.default.post(name: NOTIFY_USER_DATA_CHANGED, object: nil)
+                            NotificationCenter.default.post(name: NOTIFY_CHANNEL_SELECTED, object: nil)
                         })
                         
                     }
@@ -76,6 +76,8 @@ class CreateAccountVC: UIViewController {
         
         
     }
+    
+   
     
     @IBAction func geratecolorPressed(_ sender: Any) {
         

@@ -13,11 +13,10 @@ class LoginVC: UIViewController {
     //MARK:- IBOutlets
     
     @IBOutlet weak var emailTXT: UITextField!
-    
     @IBOutlet weak var passWordTXT: UITextField!
-    
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
+    //MARK:- View methods
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.startAnimating()
@@ -30,6 +29,8 @@ class LoginVC: UIViewController {
    @objc func dismissKeyBoard(){
         self.view.endEditing(true)
     }
+    
+    //MARK:- IBACtions
     
     @IBAction func CloseBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)

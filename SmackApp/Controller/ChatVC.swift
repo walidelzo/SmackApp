@@ -66,7 +66,7 @@ class ChatVC: UIViewController {
     }
     
     func updateWithChannel(){
-        let channelName = MassegeDataService.instance.selectedChannel?.name ?? ""
+        let channelName = MassegeDataService.instance.selectedChannel?.name ?? "Smack"
         channelLabel.text = "#\(channelName)"
     }
     

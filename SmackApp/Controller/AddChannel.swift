@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddChannel: UIViewController {
+class AddChannel: UIViewController,UITextFieldDelegate {
     //Outlets
     
     @IBOutlet weak var bgview: UIView!
@@ -19,10 +19,32 @@ class AddChannel: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        namTXT.delegate = self
+        descriptionTXT.delegate = self
         // Do any additional setup after loading the view.
         let closeTapGes = UITapGestureRecognizer(target: self, action: #selector(AddChannel.tapFunc(_:)))
         bgview.addGestureRecognizer(closeTapGes)
+       
+        
+        //to dismiss keyboard
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(AddChannel.handleTap(_:)))
+        view.addGestureRecognizer(tapGes)
+        
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         namTXT.resignFirstResponder()
+        descriptionTXT.resignFirstResponder()
+        return true
+    }
+    
+   
+    
+  
+    
+    @objc func handleTap(_ recognizer:UITapGestureRecognizer){
+        view.endEditing(true)
     }
     
     //gesture method
@@ -43,7 +65,7 @@ class AddChannel: UIViewController {
         guard let descriptionOfchannel  = descriptionTXT.text , descriptionTXT.text != "" else { return }
         SocketService.instance.addChannel(channelName: nameOfChannel, channeDescription: descriptionOfchannel) { (Success) in
             self.dismiss(animated: true, completion: nil)
-           
+            
         }
     }
     
