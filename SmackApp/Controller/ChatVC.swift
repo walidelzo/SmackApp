@@ -8,42 +8,47 @@
 
 import UIKit
 
-class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
+class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITextFieldDelegate {
     
     //MARK:- IBoutlets
     @IBOutlet var menuBtn: UIButton!
     @IBOutlet weak var channelLabel: UILabel!
     @IBOutlet weak var messageTXT: UITextField!
     @IBOutlet weak var tableview:UITableView!
+    @IBOutlet weak var sendBtn: UIButton!
+    
+    /// variables
+    
+    var isTyping = false
+    
     //MARK:- IBACTIONS
     @IBAction func sendBtnPressed(_ sender: Any) {
-    
-        if AuthService.instance.islogIn {
-           guard let message = messageTXT.text , messageTXT.text != "" else {return}
-            guard let channelId = MassegeDataService.instance.selectedChannel?.id else {return}
-            
-            SocketService.instance.addMesaageWithBody(messageBody: message, channelId: channelId, userId: UserDataService.instance.id) { (success) in
-                if success{
-                    self.messageTXT.text = ""
-                    self.messageTXT.resignFirstResponder()
-                }
-            }
-            
-            
-        }
+    sendMessage()
         
+    }
+    
+    @IBAction func messageTXTEditing(_ sender: Any) {
+        if messageTXT.text == "" {
+            isTyping = false
+            sendBtn.isHidden = true
+        }else{
+            if isTyping == false {
+                sendBtn.isHidden = false
+            }
+            isTyping = true
+        }
     }
     
     //MARK:- view method
     override func viewDidLoad() {
         super.viewDidLoad()
         view.bindToKeyboard()
-        
         tableview.delegate = self
+        messageTXT.delegate = self
         tableview.dataSource = self
-        tableview.estimatedRowHeight = 80
-        //tableview.rowHeight = automaticDimension
-        
+       tableview.estimatedRowHeight = 80
+        tableview.rowHeight = UITableView.automaticDimension
+        sendBtn.isHidden = true
         // add revealaction to menu button
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         
@@ -58,6 +63,13 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         //add notification to observe which channel selected
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIFY_CHANNEL_SELECTED, object: nil)
         
+        //Get Messages by SocketIO
+        SocketService.instance.getMessages { (Success) in
+            self.tableview.reloadData()
+            self.scrollTable()
+        }
+        
+        
         if AuthService.instance.islogIn
             {
             AuthService.instance.findUserByEmail
@@ -65,6 +77,8 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
                 NotificationCenter.default.post(name: NOTIFY_USER_DATA_CHANGED, object: nil)
                 }
             }
+        
+
     }
     
     // this method to tapGestureRecoginzer
@@ -77,8 +91,13 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     @objc func userDataDidChanged (_ notifi:Notification){
         if AuthService.instance.islogIn{
             onLoginGetMasseges()
+            revealViewController()?.revealToggle(animated: true)
+
         }else{
             channelLabel.text = "Please Login First"
+            self.tableview.reloadData()
+            revealViewController()?.revealToggle(animated: true)
+
         }
         
     }
@@ -118,10 +137,45 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         MassegeDataService.instance.findAllMessagesForChannel(channelId: channelID) { (succ) in
             if succ {
                 self.tableview.reloadData()
+                self.scrollTable()
+
             }
 
         }
     }
+    
+    
+    func scrollTable(){
+        if MassegeDataService.instance.messages.count > 0 {
+            let inIndex = IndexPath(row: (MassegeDataService.instance.messages.count - 1), section: 0)
+            self.tableview.scrollToRow(at: inIndex, at: .bottom, animated: true)
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendMessage()
+        messageTXT.resignFirstResponder()
+        return true
+    }
+    
+    
+    func sendMessage(){
+        if AuthService.instance.islogIn {
+            guard let message = messageTXT.text , messageTXT.text != "" else {return}
+            guard let channelId = MassegeDataService.instance.selectedChannel?.id else {return}
+            
+            SocketService.instance.addMesaageWithBody(messageBody: message, channelId: channelId, userId: UserDataService.instance.id) { (success) in
+                if success{
+                    self.messageTXT.text = ""
+                    self.messageTXT.resignFirstResponder()
+                }
+            }
+            
+            
+        }
+
+    }
+    
     
     //MARK:- TableView Methods
     
@@ -143,6 +197,8 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource {
             return MessageCell()
         }
     }
+    
+    
     
     
 }

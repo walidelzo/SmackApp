@@ -26,7 +26,7 @@ class MessageCell: UITableViewCell {
         imageMessage.backgroundColor =  UserDataService.instance.returnColor(avatarColorString: message.userAvatarColor)
         imageMessage.image = UIImage(named: message.userAvatar)
         userNameLbl.text = message.userName
-        timeStampLbl.text = message.timeStamp
+        //timeStampLbl.text = message.timeStamp
         MessageLbl.text = message.message
     }
 

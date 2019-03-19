@@ -58,5 +58,32 @@ class SocketService :NSObject {
         completion(true)
     }
     
+    func getMessages(complition:@escaping  completionHandler){
+        
+        socketClient.on("messageCreated") { (dataArray, ack) in
+            
+           //  io.emit("messageCreated",  msg.messageBody, msg.userId, msg.channelId, msg.userName, msg.userAvatar, msg.userAvatarColor, msg.id, msg.timeStamp);
+            
+            guard let messageBody = dataArray[0] as? String else {return}
+            guard let channelId = dataArray[2] as? String else {return}
+            guard let userName = dataArray[3] as? String else {return}
+            guard let userAvatar = dataArray[4] as? String else {return}
+            guard let avatarColor = dataArray[5] as? String else {return}
+            guard let id = dataArray[6] as? String else {return}
+            guard let timeStamp = dataArray[7] as?String else {return}
+            
+            if MassegeDataService.instance.selectedChannel?.id == channelId && AuthService.instance.islogIn
+            {
+             let newMessage = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: avatarColor, id: id, timeStamp: timeStamp)
+                MassegeDataService.instance.messages.append(newMessage)
+                complition(true)
+            }else{
+                complition(false)
+            }
+        }
+        
+        
+    }
+    
     
 }

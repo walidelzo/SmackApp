@@ -24,8 +24,9 @@ let NOTIFY_CHANNEL_SELECTED = Notification.Name("notifichannelSelected")
 
 
 
-//let BASE_URL = "https://walidsmackapp.herokuapp.com/v1/"
-let BASE_URL = "http://localhost:3005/v1/"
+let BASE_URL = "https://walidsmackapp.herokuapp.com/v1/"
+//let BASE_URL = "http://localhost:3005/v1/"
+//let BASE_URL = "http://192.168.99.2:3005/v1/"
 
 let REGISTER_URL = "\(BASE_URL)account/register"
 let LOGIN_URL = "\(BASE_URL)account/login"
