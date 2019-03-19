@@ -27,21 +27,22 @@ class MassegeDataService {
     func findAllChannels(completion:@escaping completionHandler){
         
         Alamofire.request(URL_CHANNEL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BREARER_HEADER).responseJSON { (response) in
-            
+
             if (response.result.error == nil){
-                    ///
                 guard let data = response.data else {return}
+
                 if  let json = try? JSON(data: data).array
                 {
                     for item in json!{
+                        
                         let id  = item["_id"].stringValue
                         let name = item["name"].stringValue
                         let description = item["description"].stringValue
-                        
-                        let channel = Channel.init(id: id, name: name, description: description)
+                        let channel = Channel(id: id, name: name, description: description)
                         self.channels.append(channel)
-                        NotificationCenter.default.post(name: NOTIFY_CHANNEL_LOADED, object: nil)
                     }
+                    completion(true)
+                    NotificationCenter.default.post(name: NOTIFY_CHANNEL_LOADED, object: nil)
                 }
             }else{
                 completion(false)
@@ -55,15 +56,16 @@ class MassegeDataService {
     
     
     func findAllMessagesForChannel (channelId:String , completion :@escaping completionHandler){
-        
         Alamofire.request("\(URL_MESSAGES)\(channelId)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BREARER_HEADER).responseJSON { (response) in
+            
             if (response.result.error == nil){
                 self.clearMessage()
                 guard let data = response.data else {return}
+
                 if let json = try? JSON(data: data).array
                 {
+                   // print(json! as Any)
                     for item in json!{
-                        
                         //Make properties to create massage
                         let id  = item["_id"].stringValue
                         let messageBody = item["messageBody"].stringValue
@@ -74,16 +76,12 @@ class MassegeDataService {
                         let timeStamp = item["timeStamp"].stringValue
                         
                         //create massage from message struct
-                        let message = Message.init(message: messageBody, userName: username, channelId: channelId, userAvatar: avatarName, userAvatarColor: avatarColor, id: id, timeStamp: timeStamp)
-                        
+                        let message = Message(message: messageBody, userName: username, channelId: channelId, userAvatar: avatarName, userAvatarColor: avatarColor, id: id, timeStamp: timeStamp)
                        self.messages.append(message)
-                        print("-----> the count of mesaage \(self.messages.count) ")
-                        print(self.messages)
-
+                       // print("-----> the count of mesaage \(self.messages.count) ")
+                        //print(self.messages)
                     }
                 }
-                
-                
                completion(true)
             }else{
                 completion(false)

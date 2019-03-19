@@ -44,11 +44,18 @@ class SocketService :NSObject {
             guard let channelDescription = arrayOfData[1] as? String else {return}
             guard let channelId = arrayOfData[2] as?String else {return}
             
-            let channel = Channel.init(id: channelId, name: channelNamee, description: channelDescription)
+            let channel = Channel(id: channelId, name: channelNamee, description: channelDescription)
             MassegeDataService.instance.channels.append(channel)
            completion(true)
         }
         
+    }
+    
+    
+    func addMesaageWithBody(messageBody:String,channelId:String,userId:String ,completion:@escaping completionHandler){
+       let user = UserDataService.instance
+        socketClient.emit("newMessage", messageBody,userId ,channelId,user.name,user.avatarName,user.avatarColor)
+        completion(true)
     }
     
     
