@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T9G-4m-ZUo">
-                                <rect key="frame" x="0.0" y="97" width="375" height="505"/>
+                                <rect key="frame" x="0.0" y="97" width="375" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="112" id="AUg-yq-J3q" customClass="MessageCell" customModule="SmackApp" customModuleProvider="target">
@@ -142,6 +142,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1js-6N-dln">
+                                <rect key="frame" x="3" y="613" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -157,7 +163,9 @@
                             <constraint firstItem="bjO-dx-nMi" firstAttribute="trailing" secondItem="vMJ-jM-lD4" secondAttribute="trailing" id="grs-WD-aZX"/>
                             <constraint firstItem="bjO-dx-nMi" firstAttribute="trailing" secondItem="3aA-fK-Kxy" secondAttribute="trailing" id="jE8-Rr-pp2"/>
                             <constraint firstItem="vMJ-jM-lD4" firstAttribute="leading" secondItem="bjO-dx-nMi" secondAttribute="leading" id="lNc-Qa-Cm4"/>
-                            <constraint firstItem="3aA-fK-Kxy" firstAttribute="top" secondItem="T9G-4m-ZUo" secondAttribute="bottom" constant="15" id="lau-Iz-0p9"/>
+                            <constraint firstItem="3aA-fK-Kxy" firstAttribute="top" secondItem="T9G-4m-ZUo" secondAttribute="bottom" constant="20" id="lau-Iz-0p9"/>
+                            <constraint firstItem="1js-6N-dln" firstAttribute="leading" secondItem="bjO-dx-nMi" secondAttribute="leading" constant="3" id="qlP-6f-Mrj"/>
+                            <constraint firstItem="3aA-fK-Kxy" firstAttribute="top" secondItem="1js-6N-dln" secondAttribute="bottom" constant="4" id="raL-JL-gkN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bjO-dx-nMi"/>
                     </view>
@@ -167,6 +175,7 @@
                         <outlet property="messageTXT" destination="3aA-fK-Kxy" id="2Dx-MG-oBI"/>
                         <outlet property="sendBtn" destination="yI6-lb-bib" id="Xae-q0-71N"/>
                         <outlet property="tableview" destination="T9G-4m-ZUo" id="QeW-Wo-Dpf"/>
+                        <outlet property="typingLbl" destination="1js-6N-dln" id="Qoe-un-akY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ebw-9b-b2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,6 +190,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-0K-pmj">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjz-U8-aql">
                                 <rect key="frame" x="5" y="25" width="77" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -270,6 +283,7 @@
                         <viewLayoutGuide key="safeArea" id="BMD-TN-wSf"/>
                     </view>
                     <connections>
+                        <outlet property="indicator" destination="aPp-0K-pmj" id="QKo-ZX-kxF"/>
                         <outlet property="loginBtn" destination="zqE-9m-cGt" id="dD0-co-Pw1"/>
                         <outlet property="menuProfileImage" destination="cow-mi-nXn" id="za0-Xy-HjX"/>
                         <outlet property="tableView" destination="aZC-xT-Xlo" id="lIp-bR-dCA"/>

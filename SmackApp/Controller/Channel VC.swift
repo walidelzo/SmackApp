@@ -14,6 +14,7 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var menuProfileImage: RoundedImage!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     //MARK:- tableView dataSource
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,7 +72,9 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
     
     ///MARK:- Notification Methods
     @objc func userDataDidChanged (_ notifi:Notification){
+
         setUserInfo()
+
     }
     
     @objc func channelsloaded(_ notifi:Notification){
@@ -84,7 +87,10 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
             menuProfileImage.image = UIImage(named:UserDataService.instance.avatarName)
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
             menuProfileImage.backgroundColor = UserDataService.instance.returnColor(avatarColorString: UserDataService.instance.avatarColor)
+            indicator.isHidden = true
+
         }else{
+            indicator.isHidden = true
             menuProfileImage.image = UIImage (named: "menuProfileIcon")
             loginBtn.setTitle("Login", for: .normal)
             menuProfileImage.backgroundColor = UIColor.clear

@@ -16,6 +16,7 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
     @IBOutlet weak var messageTXT: UITextField!
     @IBOutlet weak var tableview:UITableView!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var typingLbl: UILabel!
     
     /// variables
     
@@ -28,14 +29,19 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
     }
     
     @IBAction func messageTXTEditing(_ sender: Any) {
+        guard let channelId = MassegeDataService.instance.selectedChannel?.id else {return}
         if messageTXT.text == "" {
             isTyping = false
             sendBtn.isHidden = true
+            SocketService.instance.socketClient.emit("stopType" ,UserDataService.instance.name ,channelId)
+            self.typingLbl.text = ""
         }else{
             if isTyping == false {
                 sendBtn.isHidden = false
             }
             isTyping = true
+            SocketService.instance.socketClient.emit("startType",UserDataService.instance.name , channelId)
+
         }
     }
     
@@ -67,8 +73,38 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
         SocketService.instance.getMessages { (Success) in
             self.tableview.reloadData()
             self.scrollTable()
+            self.typingLbl.text = ""
+
         }
         
+        // get user are typing by SocketIO
+        SocketService.instance.getTypingUsers { (usersTyping) in
+            guard let channelId = MassegeDataService.instance.selectedChannel?.id else {return}
+            var name = ""
+            var numberOfUsers = 0
+            for (userTyping ,channel ) in usersTyping{
+                if userTyping != UserDataService.instance.name && channel == channelId{
+                    if name == ""
+                    {
+                        name = userTyping
+                    }else {
+                        name = "\(name) , \(userTyping)"
+                    }
+                    numberOfUsers += 1
+                }
+                
+                if numberOfUsers > 0 && AuthService.instance.islogIn {
+                    var verbs = " is "
+                    if numberOfUsers > 1 {
+                        verbs = " are "
+                    }
+                    self.typingLbl.text = "\(name) \(verbs) typing as message"
+                }else{
+                    self.typingLbl.text = ""
+                }
+            }
+            
+        }
         
         if AuthService.instance.islogIn
             {
@@ -91,7 +127,7 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
     @objc func userDataDidChanged (_ notifi:Notification){
         if AuthService.instance.islogIn{
             onLoginGetMasseges()
-            revealViewController()?.revealToggle(animated: true)
+           // revealViewController()?.revealToggle(animated: true)
 
         }else{
             channelLabel.text = "Please Login First"
@@ -168,6 +204,10 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
                 if success{
                     self.messageTXT.text = ""
                     self.messageTXT.resignFirstResponder()
+                    SocketService.instance.socketClient.emit("stopType", UserDataService.instance.name , channelId)
+                    
+                    
+                    
                 }
             }
             

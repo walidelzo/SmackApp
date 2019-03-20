@@ -37,6 +37,8 @@ class SocketService :NSObject {
         
     }
     
+    //Get Channel in real time mode by SocketIO
+    
     func getChannel (completion:@escaping completionHandler){
         socketClient.on("channelCreated") { (arrayOfData, ack) in
             
@@ -51,6 +53,7 @@ class SocketService :NSObject {
         
     }
     
+    //MARK:- Add message from user to channel which he selected
     
     func addMesaageWithBody(messageBody:String,channelId:String,userId:String ,completion:@escaping completionHandler){
        let user = UserDataService.instance
@@ -58,6 +61,8 @@ class SocketService :NSObject {
         completion(true)
     }
     
+    
+    //MARK:- getMessage function get all message by socket (real time)
     func getMessages(complition:@escaping  completionHandler){
         
         socketClient.on("messageCreated") { (dataArray, ack) in
@@ -81,8 +86,14 @@ class SocketService :NSObject {
                 complition(false)
             }
         }
-        
-        
+    }
+    
+    
+    func getTypingUsers(_ ComplitionHandler: @escaping (_ typingUsers : [String : String]  ) -> Void){
+        socketClient.on("userTypingUpdate") { (dataArray, ack) in
+            guard  let typingUsers = dataArray[0] as? [String : String] else {return}
+            ComplitionHandler(typingUsers)
+        }
     }
     
     
