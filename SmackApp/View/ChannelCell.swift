@@ -34,7 +34,7 @@ class ChannelCell: UITableViewCell {
         channelTitle.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
         for id in MassegeDataService.instance.unReadChannel
         {
-            if id == channel.id
+            if id == channel.id && MassegeDataService.instance.selectedChannel?.id != id
             {
                 channelTitle.font = UIFont(name: "HelveticaNeue-Bold", size: 22)
                 
