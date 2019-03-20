@@ -17,6 +17,7 @@ class MassegeDataService {
     //this is array of channels and messages struct
     var channels = [Channel]()
     var messages = [Message]()
+    var unReadChannel = [String]()
     
     var selectedChannel :Channel?
     //this function to retrive all channel from api by Alamofire

@@ -63,11 +63,10 @@ class SocketService :NSObject {
     
     
     //MARK:- getMessage function get all message by socket (real time)
-    func getMessages(complition:@escaping  completionHandler){
+    func getMessages(complition:@escaping  (_ messages:Message)->Void){
         
         socketClient.on("messageCreated") { (dataArray, ack) in
             
-           //  io.emit("messageCreated",  msg.messageBody, msg.userId, msg.channelId, msg.userName, msg.userAvatar, msg.userAvatarColor, msg.id, msg.timeStamp);
             
             guard let messageBody = dataArray[0] as? String else {return}
             guard let channelId = dataArray[2] as? String else {return}
@@ -77,14 +76,10 @@ class SocketService :NSObject {
             guard let id = dataArray[6] as? String else {return}
             guard let timeStamp = dataArray[7] as?String else {return}
             
-            if MassegeDataService.instance.selectedChannel?.id == channelId && AuthService.instance.islogIn
-            {
-             let newMessage = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: avatarColor, id: id, timeStamp: timeStamp)
-                MassegeDataService.instance.messages.append(newMessage)
-                complition(true)
-            }else{
-                complition(false)
-            }
+            let newMessage = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: avatarColor, id: id, timeStamp: timeStamp)
+            MassegeDataService.instance.messages.append(newMessage)
+            
+            complition(newMessage)
         }
     }
     

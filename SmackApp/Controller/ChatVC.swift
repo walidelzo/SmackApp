@@ -70,10 +70,16 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIFY_CHANNEL_SELECTED, object: nil)
         
         //Get Messages by SocketIO
-        SocketService.instance.getMessages { (Success) in
-            self.tableview.reloadData()
-            self.scrollTable()
-            self.typingLbl.text = ""
+        SocketService.instance.getMessages { (newMesages) in
+            if newMesages.channelId == MassegeDataService.instance.selectedChannel?.id && AuthService.instance.islogIn{
+                
+                MassegeDataService.instance.messages.append(newMesages)
+                self.tableview.reloadData()
+                self.scrollTable()
+                self.typingLbl.text = ""
+            }
+            
+          
 
         }
         

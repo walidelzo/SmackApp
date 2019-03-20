@@ -38,6 +38,19 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = MassegeDataService.instance.channels[indexPath.row]
         MassegeDataService.instance.selectedChannel = channel
+        
+        if  MassegeDataService.instance.unReadChannel.count > 0 {
+            
+            MassegeDataService.instance.unReadChannel =
+            MassegeDataService.instance.unReadChannel.filter({$0 != channel.id})
+            
+        }
+        
+        let atIndex = IndexPath(row: indexPath.row, section: 0)
+        tableView.reloadRows(at: [atIndex], with: .none)
+        tableView.selectRow(at: atIndex, animated: true, scrollPosition: .none)
+        
+        
         NotificationCenter.default.post(name: NOTIFY_CHANNEL_SELECTED, object: nil)
         revealViewController()?.revealToggle(animated: true)
     }
@@ -60,6 +73,14 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
         SocketService.instance.getChannel { (Success) in
             if (Success)
             {
+                self.tableView.reloadData()
+            }
+        }
+        
+    // socket to listen unread Channel messages
+        SocketService.instance.getMessages { (NewMessages) in
+            if NewMessages.id != MassegeDataService.instance.selectedChannel?.id && AuthService.instance.islogIn{
+                MassegeDataService.instance.unReadChannel.append(NewMessages.channelId)
                 self.tableView.reloadData()
             }
         }
