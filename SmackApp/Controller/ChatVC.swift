@@ -18,6 +18,7 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var typingLbl: UILabel!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     /// variables
     
     var isTyping = false
@@ -238,6 +239,7 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
         {
             let messageOne = MassegeDataService.instance.messages[indexPath.row]
             cell.configureCell(message: messageOne)
+            indicator.isHidden = true
             return cell 
             
         }else{

@@ -149,6 +149,9 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jzz-uh-zpI">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -163,7 +166,9 @@
                             <constraint firstItem="T9G-4m-ZUo" firstAttribute="top" secondItem="vMJ-jM-lD4" secondAttribute="bottom" id="cev-oi-ukQ"/>
                             <constraint firstItem="H1L-tW-dUB" firstAttribute="leading" secondItem="bjO-dx-nMi" secondAttribute="leading" constant="3" id="cze-E6-O3Z"/>
                             <constraint firstItem="1js-6N-dln" firstAttribute="top" secondItem="T9G-4m-ZUo" secondAttribute="bottom" constant="5" id="fBe-p4-EKM"/>
+                            <constraint firstItem="jzz-uh-zpI" firstAttribute="centerY" secondItem="Akf-Xn-2Ox" secondAttribute="centerY" id="fIl-od-eoe"/>
                             <constraint firstItem="bjO-dx-nMi" firstAttribute="trailing" secondItem="vMJ-jM-lD4" secondAttribute="trailing" id="grs-WD-aZX"/>
+                            <constraint firstItem="jzz-uh-zpI" firstAttribute="centerX" secondItem="Akf-Xn-2Ox" secondAttribute="centerX" id="hcm-Jr-0Zq"/>
                             <constraint firstItem="vMJ-jM-lD4" firstAttribute="leading" secondItem="bjO-dx-nMi" secondAttribute="leading" id="lNc-Qa-Cm4"/>
                             <constraint firstItem="H1L-tW-dUB" firstAttribute="top" secondItem="1js-6N-dln" secondAttribute="bottom" constant="3" id="lQ7-Cq-Klb"/>
                             <constraint firstItem="1js-6N-dln" firstAttribute="leading" secondItem="bjO-dx-nMi" secondAttribute="leading" constant="3" id="qlP-6f-Mrj"/>
@@ -173,6 +178,7 @@
                     </view>
                     <connections>
                         <outlet property="channelLabel" destination="JTx-fb-O6L" id="Rfr-XG-H6e"/>
+                        <outlet property="indicator" destination="jzz-uh-zpI" id="QCU-Dq-1gq"/>
                         <outlet property="menuBtn" destination="ZFS-Ec-cuI" id="dUZ-F8-6FW"/>
                         <outlet property="messageTXT" destination="H1L-tW-dUB" id="4KX-EZ-WeC"/>
                         <outlet property="sendBtn" destination="yI6-lb-bib" id="Xae-q0-71N"/>
