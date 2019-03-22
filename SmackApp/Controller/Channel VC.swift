@@ -29,10 +29,13 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelCell
         {
             cell.conFigureCell(channel: MassegeDataService.instance.channels[indexPath.row])
+            indicator.isHidden = true
+
             return cell
         }else{
             return ChannelCell()
         }
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -74,7 +77,9 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
             if (Success)
             {
                 self.tableView.reloadData()
+
             }
+
         }
         
     // socket to listen unread Channel messages
@@ -84,11 +89,13 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
                 self.tableView.reloadData()
             }
         }
+        //
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setUserInfo()
+
     }
     
     ///MARK:- Notification Methods
@@ -100,6 +107,7 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
     
     @objc func channelsloaded(_ notifi:Notification){
         self.tableView.reloadData()
+
     }
     
     
@@ -108,10 +116,10 @@ class Channel_VC: UIViewController , UITableViewDelegate,UITableViewDataSource {
             menuProfileImage.image = UIImage(named:UserDataService.instance.avatarName)
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
             menuProfileImage.backgroundColor = UserDataService.instance.returnColor(avatarColorString: UserDataService.instance.avatarColor)
-            indicator.isHidden = true
+           
 
         }else{
-            indicator.isHidden = true
+         
             menuProfileImage.image = UIImage (named: "menuProfileIcon")
             loginBtn.setTitle("Login", for: .normal)
             menuProfileImage.backgroundColor = UIColor.clear

@@ -16,6 +16,7 @@ class EditData: UIViewController {
     @IBOutlet weak var bgView: UIView!
     //IBActions
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBAction func closeBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -23,11 +24,15 @@ class EditData: UIViewController {
    
     
     @IBAction func SaveBtnPressed(_ sender: Any) {
+        indicator.startAnimating()
+        indicator.isHidden = false
+        
         guard let newUserName = usernameTXT.text  else { return  }
         AuthService.instance.updateUser(newName: newUserName) { (Success) in
             if (Success){
                 self.dismiss(animated: true, completion: nil)
-                print("the user name is changed")
+                self.indicator.stopAnimating()
+                self.indicator.isHidden = true
             }
         }
         
@@ -35,11 +40,17 @@ class EditData: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicator.isHidden = true
         let tap =   UITapGestureRecognizer(target: self, action: #selector(handelTap))
         bgView.addGestureRecognizer(tap)
+        let dismisKeyBoard  = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        view.addGestureRecognizer(dismisKeyBoard)
     }
    @objc func handelTap (){
         self.dismiss(animated: true, completion: nil)
     }
-
+    @objc func dismissKeyBoard()
+    {
+    self.view.endEditing(true)
+    }
 }

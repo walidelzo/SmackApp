@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditData" customModule="SmackApp" customModuleProvider="target">
             <connections>
                 <outlet property="bgView" destination="ARf-RW-oKd" id="5N6-qk-1ax"/>
+                <outlet property="indicator" destination="Upw-4X-ccM" id="Xtt-5E-wUB"/>
                 <outlet property="usernameTXT" destination="1hG-b3-S1k" id="yuN-BF-246"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -66,6 +67,10 @@
                                 <action selector="SaveBtnPressed:" destination="-1" eventType="touchUpInside" id="Xeo-l6-iid"/>
                             </connections>
                         </button>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Upw-4X-ccM">
+                            <rect key="frame" x="159" y="81.5" width="37" height="37"/>
+                            <color key="color" red="0.2901960784" green="0.30196078430000001" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -73,7 +78,9 @@
                         <constraint firstItem="1hG-b3-S1k" firstAttribute="centerX" secondItem="fFJ-Qd-gkL" secondAttribute="centerX" id="CSd-nM-kcM"/>
                         <constraint firstItem="Pn6-J8-0pg" firstAttribute="top" secondItem="fFJ-Qd-gkL" secondAttribute="top" constant="20" id="LWn-RZ-qBK"/>
                         <constraint firstAttribute="bottom" secondItem="rpv-iF-xDZ" secondAttribute="bottom" constant="15" id="TJN-OQ-QMx"/>
+                        <constraint firstItem="Upw-4X-ccM" firstAttribute="centerY" secondItem="fFJ-Qd-gkL" secondAttribute="centerY" id="U8a-dA-OWs"/>
                         <constraint firstItem="TXe-5C-6NK" firstAttribute="top" secondItem="fFJ-Qd-gkL" secondAttribute="top" constant="10" id="UGc-Sf-GHU"/>
+                        <constraint firstItem="Upw-4X-ccM" firstAttribute="centerX" secondItem="fFJ-Qd-gkL" secondAttribute="centerX" id="XzW-2Q-azs"/>
                         <constraint firstAttribute="height" constant="200" id="mbh-G7-JWk"/>
                         <constraint firstAttribute="trailing" secondItem="TXe-5C-6NK" secondAttribute="trailing" constant="10" id="n7k-CM-Gtn"/>
                         <constraint firstItem="1hG-b3-S1k" firstAttribute="top" secondItem="Pn6-J8-0pg" secondAttribute="bottom" constant="18" id="s1Z-GB-Lj5"/>
