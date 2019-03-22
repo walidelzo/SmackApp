@@ -64,7 +64,6 @@ class SocketService :NSObject {
     
     //MARK:- getMessage function get all message by socket (real time)
     func getMessages(complition:@escaping  (_ messages:Message)->Void){
-        
         socketClient.on("messageCreated") { (dataArray, ack) in
             
             
@@ -75,10 +74,9 @@ class SocketService :NSObject {
             guard let avatarColor = dataArray[5] as? String else {return}
             guard let id = dataArray[6] as? String else {return}
             guard let timeStamp = dataArray[7] as?String else {return}
-            
+
             let newMessage = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: avatarColor, id: id, timeStamp: timeStamp)
-            MassegeDataService.instance.messages.append(newMessage)
-            
+            //MassegeDataService.instance.messages.append(newMessage)
             complition(newMessage)
         }
     }

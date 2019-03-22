@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITextFieldDelegate {
+class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITextViewDelegate {
     
     //MARK:- IBoutlets
     @IBOutlet var menuBtn: UIButton!
     @IBOutlet weak var channelLabel: UILabel!
-    @IBOutlet weak var messageTXT: UITextField!
+    @IBOutlet weak var messageTXT: UITextView!
     @IBOutlet weak var tableview:UITableView!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var typingLbl: UILabel!
@@ -28,7 +28,8 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
         
     }
     
-    @IBAction func messageTXTEditing(_ sender: Any) {
+    
+    func textViewDidChange(_ textView: UITextView){
         guard let channelId = MassegeDataService.instance.selectedChannel?.id else {return}
         if messageTXT.text == "" {
             isTyping = false
@@ -49,12 +50,13 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         view.bindToKeyboard()
+        typingLbl.text = ""
         tableview.delegate = self
         messageTXT.delegate = self
         tableview.dataSource = self
        tableview.estimatedRowHeight = 80
         tableview.rowHeight = UITableView.automaticDimension
-        sendBtn.isHidden = true
+       // sendBtn.isHidden = true
         // add revealaction to menu button
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         
@@ -209,10 +211,9 @@ class ChatVC: UIViewController ,UITableViewDelegate,UITableViewDataSource ,UITex
             SocketService.instance.addMesaageWithBody(messageBody: message, channelId: channelId, userId: UserDataService.instance.id) { (success) in
                 if success{
                     self.messageTXT.text = ""
+                   // self.sendBtn.isHidden = true
                     self.messageTXT.resignFirstResponder()
                     SocketService.instance.socketClient.emit("stopType", UserDataService.instance.name , channelId)
-                    
-                    
                     
                 }
             }

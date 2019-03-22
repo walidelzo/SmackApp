@@ -99,4 +99,7 @@ class MassegeDataService {
     func clearChannel(){
         channels.removeAll()
     }
+    
+    
+    
 }

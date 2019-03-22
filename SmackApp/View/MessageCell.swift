@@ -29,20 +29,19 @@ class MessageCell: UITableViewCell {
         MessageLbl.text = message.message
         
         guard  var isoDate = message.timeStamp else {return}
-       // let end = isoDate.index(isoDate.endIndex, offsetBy: -5)
         let index = (isoDate.count - 5)
         isoDate = String(isoDate.prefix(index))
         isoDate = isoDate.appending("Z")
 
         let isoFormmatter = ISO8601DateFormatter()
         let chatDate = isoFormmatter.date(from: isoDate)
-        
+        //timeStampLbl.text = isoDate
         
         let newFormmater = DateFormatter()
-        newFormmater.dateFormat = "MMM d , hh:mm a"
-        if let fomattedTime = chatDate {
-        timeStampLbl.text = newFormmater.string(from: fomattedTime)
-        }
+       newFormmater.dateFormat = "MMM d , hh:mm a"
+      if let fomattedTime = chatDate {
+     timeStampLbl.text = newFormmater.string(from: fomattedTime)
+     }
         
     }
     

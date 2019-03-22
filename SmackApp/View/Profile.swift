@@ -18,6 +18,13 @@ class Profile: UIViewController {
     @IBOutlet weak var userEmailLBL: UILabel!
     @IBOutlet weak var userName: UILabel!
     
+    @IBAction func chanegNamePressed(_ sender: Any) {
+        if AuthService.instance.islogIn {
+            let editVC = EditData()
+            editVC.modalPresentationStyle = .custom
+            present(editVC, animated: true, completion: nil)
+        }
+    }
     //MARK:-  IBActions
     
     @IBAction func closeProfileBtn(_ sender: Any) {
@@ -30,14 +37,18 @@ class Profile: UIViewController {
         dismiss(animated: true, completion: nil)
         
     }
-    
+    @IBAction func picAvatar(_ sender :Any){
+        
+    }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(Profile.setUpView), name:NOTIFY_USER_DATA_EDITED, object: nil)
         setUpView()
     }
     
     //MARK:- setView Method
-    func setUpView(){
+   @objc func setUpView(){
         userName.text = UserDataService.instance.name
         userEmailLBL.text = UserDataService.instance.email
         profileImage.image = UIImage(named: UserDataService.instance.avatarName)
@@ -52,5 +63,7 @@ class Profile: UIViewController {
  @objc   func gestusDismissScreen (){
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
     
 }

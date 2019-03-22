@@ -52,12 +52,10 @@ class LoginVC: UIViewController {
 
                 AuthService.instance.findUserByEmail(completion: { (Success) in
                     if (Success){
-
-                        self.indicator.stopAnimating()
-                        self.indicator.isHidden = true
                         NotificationCenter.default.post(name: NOTIFY_USER_DATA_CHANGED, object: nil)
                         self.dismiss(animated: true, completion: nil)
-
+                        self.indicator.stopAnimating()
+                        self.indicator.isHidden = true
                     }
                 })
                 

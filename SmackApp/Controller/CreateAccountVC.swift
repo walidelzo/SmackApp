@@ -52,8 +52,7 @@ class CreateAccountVC: UIViewController {
     //MARK:- IBActions
 
     @IBAction func signUpPressed(_ sender: Any) {
-        indicator.startAnimating()
-        indicator.isHidden = false
+
         guard let name = userNameTxt.text , userNameTxt.text != ""   else { return }
         guard let email = emailTxt.text , emailTxt.text != ""   else { return }
         guard let pass = passWordTxt.text , passWordTxt.text != "" else { return  }
@@ -63,6 +62,8 @@ class CreateAccountVC: UIViewController {
                 AuthService.instance.logingUser(email: email, password: pass, completion: { (Success) in
                     if (Success){
                         AuthService.instance.addUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
+                            self.indicator.startAnimating()
+                           self.indicator.isHidden = false
                             self.performSegue(withIdentifier: TO_WIND_TO_CHANNEL_SEGUE, sender: nil)
                             NotificationCenter.default.post(name: NOTIFY_USER_DATA_CHANGED, object: nil)
                             NotificationCenter.default.post(name: NOTIFY_CHANNEL_SELECTED, object: nil)

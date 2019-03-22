@@ -147,14 +147,6 @@ class AuthService {
             }
             
         }
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     
@@ -189,6 +181,31 @@ class AuthService {
         
     }
     
+    
+    func updateUser(newName:String,completion:@escaping completionHandler){
+        
+         let userId = UserDataService.instance.id
+        let userDetail : [String : Any] = [
+            "name":newName ,
+            "email":UserDataService.instance.email,
+            "avatarName":UserDataService.instance.avatarName,
+            "avatarColor":UserDataService.instance.avatarColor
+        ]
+        
+        Alamofire.request("\(URL_UPDATE_USER_NAME)\(userId)", method: .put, parameters: userDetail, encoding: JSONEncoding.default, headers: BREARER_HEADER).responseString { (response) in
+            if (response.result.error == nil){
+               
+            UserDataService.instance.setUserData(id: userId, name: newName, email: UserDataService.instance.email, avatarName: UserDataService.instance.avatarName, avatarcolor: UserDataService.instance.avatarColor)
+                
+                completion(true)
+                NotificationCenter.default.post(name: NOTIFY_USER_DATA_EDITED, object: nil)
+
+            }else{
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
     
     
 }

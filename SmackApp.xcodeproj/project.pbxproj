@@ -24,16 +24,19 @@
 		840EFC49223A1B0300BC400A /* TextFieldPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EFC48223A1B0300BC400A /* TextFieldPlaceHolder.swift */; };
 		840EFC4C223A714F00BC400A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840EFC4A223A714F00BC400A /* Profile.swift */; };
 		840EFC4D223A714F00BC400A /* Profile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840EFC4B223A714F00BC400A /* Profile.xib */; };
+		840FAD7C22443359005F9EAA /* RoundedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FAD7B22443359005F9EAA /* RoundedTextView.swift */; };
 		8419CCA92237898F0080D873 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419CCA82237898F0080D873 /* AuthService.swift */; };
 		8419CCAB2237DE2A0080D873 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419CCAA2237DE2A0080D873 /* RoundedButton.swift */; };
 		8432899E223531E100A03AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432899D223531E100A03AAA /* AppDelegate.swift */; };
 		843289A3223531E100A03AAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843289A1223531E100A03AAA /* Main.storyboard */; };
-		843289A5223531E200A03AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843289A4223531E200A03AAA /* Assets.xcassets */; };
 		843289A8223531E200A03AAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843289A6223531E200A03AAA /* LaunchScreen.storyboard */; };
 		843289B3223536FA00A03AAA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843289B2223536FA00A03AAA /* SWRevealViewController.m */; };
 		84426FF722354BAC008672B9 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84426FF622354BAC008672B9 /* AppConstant.swift */; };
 		84426FFC22354D5B008672B9 /* Channel VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84426FFB22354D5B008672B9 /* Channel VC.swift */; };
 		84426FFE22354D6B008672B9 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84426FFD22354D6B008672B9 /* ChatVC.swift */; };
+		8479D8872243678C00EAE269 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8479D8862243678B00EAE269 /* Assets.xcassets */; };
+		8479D88A2243BD9200EAE269 /* EditData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479D8882243BD9200EAE269 /* EditData.swift */; };
+		8479D88B2243BD9200EAE269 /* EditData.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8479D8892243BD9200EAE269 /* EditData.xib */; };
 		84DE60CF2240D5C200B32A8A /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE60CE2240D5C200B32A8A /* KeyboardBoundView.swift */; };
 		84DE60D1224117FD00B32A8A /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE60D0224117FD00B32A8A /* MessageCell.swift */; };
 		84F13B2A223E48090085EBF5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F13B29223E48090085EBF5 /* Message.swift */; };
@@ -57,12 +60,12 @@
 		840EFC48223A1B0300BC400A /* TextFieldPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceHolder.swift; sourceTree = "<group>"; };
 		840EFC4A223A714F00BC400A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		840EFC4B223A714F00BC400A /* Profile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Profile.xib; sourceTree = "<group>"; };
+		840FAD7B22443359005F9EAA /* RoundedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextView.swift; sourceTree = "<group>"; };
 		8419CCA82237898F0080D873 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8419CCAA2237DE2A0080D873 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		8432899A223531E100A03AAA /* SmackApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8432899D223531E100A03AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		843289A2223531E100A03AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		843289A4223531E200A03AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843289A7223531E200A03AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843289A9223531E200A03AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843289B0223536F800A03AAA /* SmackApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmackApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -71,6 +74,9 @@
 		84426FF622354BAC008672B9 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		84426FFB22354D5B008672B9 /* Channel VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel VC.swift"; sourceTree = "<group>"; };
 		84426FFD22354D6B008672B9 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		8479D8862243678B00EAE269 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8479D8882243BD9200EAE269 /* EditData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditData.swift; sourceTree = "<group>"; };
+		8479D8892243BD9200EAE269 /* EditData.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditData.xib; sourceTree = "<group>"; };
 		84DE60CE2240D5C200B32A8A /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		84DE60D0224117FD00B32A8A /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		84F13B29223E48090085EBF5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 			children = (
 				840EFC4B223A714F00BC400A /* Profile.xib */,
 				84065F1D223D00D60033F09A /* AddChannel.xib */,
+				8479D8892243BD9200EAE269 /* EditData.xib */,
 			);
 			path = XIPS;
 			sourceTree = "<group>";
@@ -149,9 +156,9 @@
 				843289AF223536C000A03AAA /* Supporting Files */,
 				8432899D223531E100A03AAA /* AppDelegate.swift */,
 				843289A1223531E100A03AAA /* Main.storyboard */,
-				843289A4223531E200A03AAA /* Assets.xcassets */,
 				843289A6223531E200A03AAA /* LaunchScreen.storyboard */,
 				843289A9223531E200A03AAA /* Info.plist */,
+				8479D8862243678B00EAE269 /* Assets.xcassets */,
 			);
 			path = SmackApp;
 			sourceTree = "<group>";
@@ -177,6 +184,7 @@
 		84426FF822354C82008672B9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8479D8882243BD9200EAE269 /* EditData.swift */,
 				84426FFD22354D6B008672B9 /* ChatVC.swift */,
 				84426FFB22354D5B008672B9 /* Channel VC.swift */,
 				840A31FC223652B9008BBE9E /* LoginVC.swift */,
@@ -199,6 +207,7 @@
 				84065F1A223CD3810033F09A /* ChannelCell.swift */,
 				84DE60CE2240D5C200B32A8A /* KeyboardBoundView.swift */,
 				84DE60D0224117FD00B32A8A /* MessageCell.swift */,
+				840FAD7B22443359005F9EAA /* RoundedTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,8 +293,9 @@
 				843289A8223531E200A03AAA /* LaunchScreen.storyboard in Resources */,
 				84065F1F223D00D60033F09A /* AddChannel.xib in Resources */,
 				840EFC4D223A714F00BC400A /* Profile.xib in Resources */,
-				843289A5223531E200A03AAA /* Assets.xcassets in Resources */,
 				843289A3223531E100A03AAA /* Main.storyboard in Resources */,
+				8479D8872243678C00EAE269 /* Assets.xcassets in Resources */,
+				8479D88B2243BD9200EAE269 /* EditData.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,9 +366,11 @@
 				840EFC47223A181600BC400A /* RoundedImage.swift in Sources */,
 				8419CCA92237898F0080D873 /* AuthService.swift in Sources */,
 				84065F17223C16B50033F09A /* MassageDataService.swift in Sources */,
+				840FAD7C22443359005F9EAA /* RoundedTextView.swift in Sources */,
 				84065F21223D41EE0033F09A /* SocketService.swift in Sources */,
 				840E38AD2235A88B00896FA6 /* Gradientview.swift in Sources */,
 				84DE60D1224117FD00B32A8A /* MessageCell.swift in Sources */,
+				8479D88A2243BD9200EAE269 /* EditData.swift in Sources */,
 				840EFC452239633500BC400A /* avatarCell.swift in Sources */,
 				84065F19223C16F80033F09A /* Channels.swift in Sources */,
 				84065F1E223D00D60033F09A /* AddChannel.swift in Sources */,
@@ -516,7 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3NK7U77Q3;
 				INFOPLIST_FILE = SmackApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,7 +553,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3NK7U77Q3;
 				INFOPLIST_FILE = SmackApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
